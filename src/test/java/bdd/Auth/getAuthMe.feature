@@ -1,0 +1,40 @@
+@getMeInformation
+Feature: Generacion de token de autenticacion
+
+  Background:
+    * def uriMe = '/auth/me'
+    * def path = '/Auth/'
+    * def headersMe = 'classpath:req'+path+'post_headersMe.json'
+
+
+  @getMeReusable @ignore
+  Scenario: Reusable get perfil
+    * def userLogin = { "username": user ,"password": pass }
+    * call read('classpath:bdd/Auth/postAuth.feature@postTokenReusable') userLogin
+    Given url dummyJsonURL + uriMe
+    * def headersMe = read(headersMe)
+    * print headersMe
+    And headers headersMe
+    When method GET
+    Then status 200
+    And print response
+
+  @getMe
+  Scenario Outline: Happy path get perfil
+    * def userLogin = { "username": "<user>" ,"password": "<pass>" }
+    * call read('classpath:bdd/Auth/postAuth.feature@postTokenReusable') userLogin
+    Given url dummyJsonURL + uriMe
+    * def headersMe = read(headersMe)
+    * print headersMe
+    And headers headersMe
+    When method GET
+    Then status 200
+    And print response
+    * match response.id == '#number
+    * match response.username == '<user>'
+    * match response.email == '#regex [a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}'
+
+    Examples:
+      | user     | pass         |
+      | michaelw | michaelwpass |
+      | jamesd   | jamesdpass   |
