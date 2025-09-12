@@ -19,7 +19,7 @@ Feature: Generacion de token de autenticacion
     Then status 200
     And print response
 
-  @getMe
+  @getMe @JLYH-6125 @flujo @smoke_test
   Scenario Outline: Happy path get perfil
     * def userLogin = { "username": "<user>" ,"password": "<pass>" }
     * call read('classpath:bdd/Auth/postAuth.feature@postTokenReusable') userLogin
@@ -30,7 +30,7 @@ Feature: Generacion de token de autenticacion
     When method GET
     Then status 200
     And print response
-    * match response.id == '#number
+    * match response.id == '#number'
     * match response.username == '<user>'
     * match response.email == '#regex [a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}'
 
