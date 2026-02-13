@@ -1,9 +1,13 @@
+@getAllPosts
 Feature: Prueba get posteos web
 
-  @getAllPosts
+  Background:
+    * def pathGetAllPost = '/posts'
+
+  @getAllPosts-1
   Scenario: Happy path get all posts
-    Given url 'https://jsonplaceholder.typicode.com'
-    * path '/posts'
+    Given url exampleRest + pathGetAllPost
     When method get
     Then status 200
     And print response
+    * match response != null

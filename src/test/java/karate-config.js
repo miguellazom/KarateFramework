@@ -5,14 +5,17 @@ function fn() {
 
   if( env == 'cert' ){
     karate.log('cert environment');
+    var exampleRest = 'https://jsonplaceholder.typicode.com'
     var dummyJsonURL = 'https://dummyjson.com'
+    var apiRestFullExample = 'https://api.restful-api.dev'
   }else if( env == 'dev' ){
     karate.log('no-cert environment');
   }
-
   var config = {
     env: env,
-    dummyJsonURL: dummyJsonURL
+    dummyJsonURL: dummyJsonURL,
+    apiRestFullExample:apiRestFullExample,
+    exampleRest:exampleRest,
   };
   return config;
 }

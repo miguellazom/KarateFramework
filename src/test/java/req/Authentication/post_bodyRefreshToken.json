@@ -1,0 +1,4 @@
+{
+  "refreshToken": "#(refreshTokenUser)",
+  "expiresInMins": 30
+}

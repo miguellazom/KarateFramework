@@ -1,4 +1,4 @@
-@getUser
+@getUser @userPrueba
 Feature: Generacion de token de autenticacion
 
   Background:

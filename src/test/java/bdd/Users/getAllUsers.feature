@@ -1,4 +1,4 @@
-@getAllUsers
+@getAllUsers @userPrueba
 Feature: Consultar todos los usuarios
 
   Background:

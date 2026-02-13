@@ -1,4 +1,4 @@
-@getFindByName
+@getFindByName @userPrueba
 Feature: Consultar los usuarios por nombre
 
   Background:

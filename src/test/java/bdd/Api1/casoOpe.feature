@@ -1,3 +1,4 @@
+@ABC
 Feature: Prueba simple de Karate
 
   @Suma
