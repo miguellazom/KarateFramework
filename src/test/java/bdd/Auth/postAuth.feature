@@ -43,6 +43,7 @@ Feature: Generacion de token de autenticacion
       | user     | pass         |
       | michaelw | michaelwpass |
       | jamesd   | jamesdpass   |
+      | sophiab  | sophiabpass  |
 
   @postTokenError
   Scenario Outline: Error user no registrado
